@@ -1,5 +1,5 @@
 
-import createApp, { h } from '../src'
+import createApp, { h, cxs } from '../src'
 
 const div = document.getElementById('app')
 
@@ -40,17 +40,25 @@ const App = ({ state, dispatch }) => {
     blue
   ]
 
+
   const color = colors[count % colors.length]
 
   const cx = {
     root: {
-      padding: 48
+      padding: 48,
+      '@media (min-width: 48em)': {
+        padding: 64
+      }
     },
     counter: {
       padding: 48,
       fontSize: 48,
       color,
-      backgroundColor: '#222'
+      backgroundColor: '#222',
+      transition: 'transform .2s ease-out',
+      // ':hover': {
+        // filter: 'blur(4px)',
+      // }
     },
     buttons: {
       display: 'flex'
@@ -66,6 +74,9 @@ const App = ({ state, dispatch }) => {
       appearance: 'none'
     }
   }
+
+  console.log(cxs.css.length, 'bytes')
+  console.log(cxs.css)
 
   return h`
     <div className=${cx.root}>
@@ -91,7 +102,7 @@ const App = ({ state, dispatch }) => {
 
 const app = createApp(reducer, App)
 
-console.log(app.outerHTML)
+// (reducer, renderer) => app
 
 app.mount(document.body)
 

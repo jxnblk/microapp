@@ -2,12 +2,13 @@
 import { update } from 'yo-yo'
 import { createElement } from 'bel'
 import hyperx from 'hyperx'
-// import cxs from 'cxs/src/jss/jsscxs'
+import prefixer from 'inline-style-prefixer/static'
 import cxs from 'cxs'
 
 const createEl = (tag, props, children) => {
   if (props.className && typeof props.className === 'object') {
-    props.className = cxs(props.className)
+    const prefixed = prefixer({...props.className})
+    props.className = cxs(prefixed)
   }
   return createElement(tag, props, children)
 }
@@ -29,6 +30,7 @@ const createApp = (reducer, renderer) => {
   const render = () => {
     const next = renderer(store)
     update(app, next)
+    cxs.attach()
   }
 
   const store = createStore(reducer, render)
@@ -36,6 +38,7 @@ const createApp = (reducer, renderer) => {
 
   app.mount = (el) => {
     el.appendChild(app)
+    cxs.attach()
   }
 
   app.store = store
@@ -43,5 +46,6 @@ const createApp = (reducer, renderer) => {
   return app
 }
 
+export cxs from 'cxs'
 export default createApp
 
