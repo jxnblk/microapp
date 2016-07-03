@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "cxs": "^1.0.0-beta.6",
+    "hyp": "^1.0.0-beta.1",
     "inline-style-prefixer": "^2.0.0"
   }
 }

@@ -1,19 +1,8 @@
 
+import h, { cxs } from 'hyp'
 import { update } from 'yo-yo'
-import { createElement } from 'bel'
-import hyperx from 'hyperx'
-import prefixer from 'inline-style-prefixer/static'
-import cxs from 'cxs'
 
-const createEl = (tag, props, children) => {
-  if (props.className && typeof props.className === 'object') {
-    const prefixed = prefixer({...props.className})
-    props.className = cxs(prefixed)
-  }
-  return createElement(tag, props, children)
-}
-
-export const h = hyperx(createEl)
+export h from 'hyp'
 
 const createStore = (reducer, listener = () => {}) => {
   let _ = reducer(undefined, {})
