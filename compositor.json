@@ -1,0 +1,78 @@
+{
+  "name": "jxnblk/microapp",
+  "version": "0.1.3",
+  "libraries": {
+    "xv": "^1.1.1"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Future",
+    "fontFamily": "\"Avenir Next\", Helvetica, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "textTransform": "uppercase",
+      "letterSpacing": "0.2em"
+    },
+    "alternativeText": {
+      "textTransform": "uppercase",
+      "fontWeight": 400,
+      "letterSpacing": "0.2em",
+      "opacity": 0.75
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#777",
+      "secondary": "#ccc",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav/AbsoluteNav",
+      "links": [
+        {
+          "href": "https://github.com/jxnblk/microapp",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/microapp",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header/BannerHeader",
+      "heading": "microapp",
+      "subhead": "",
+      "links": [
+        {
+          "text": "Tweet",
+          "href": "https://twitter.com/intent/tweet?text=microapp%253A%2520null&url="
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article/BasicArticle",
+      "text": "\n<p>Minimal functional application creator.\nA demonstration of basic functional UI principles.</p>\n<pre><code class=\"lang-sh\">npm i microapp\n</code></pre>\n<h2 id=\"usage-\">Usage:</h2>\n<pre><code class=\"lang-js\">import createApp, { h } from &apos;microapp&apos;\n\n// Redux-like reducer for application state\nconst reducer = (state = {\n  count: 0\n}, action) =&gt; {\n  switch (action.type) {\n    case: &apos;dec&apos;:\n      const count = state.count - 1\n      return { ...state, count }\n    case: &apos;inc&apos;:\n      const count = state.count + 1\n      return { ...state, count }\n    default:\n      return state\n  }\n}\n\n// Functional UI component\nconst App = ({ state, dispatch }) =&gt; {\n  return h`\n    &lt;div&gt;\n      &lt;h1&gt;Count: ${state.count}&lt;/h1&gt;\n      &lt;button\n        onclick=${e =&gt; dispatch({ type: &apos;dec&apos; })}&gt;\n        - Decrement\n      &lt;/button&gt;\n      &lt;button\n        onclick=${e =&gt; dispatch({ type: &apos;inc&apos; })}&gt;\n        + Increment\n      &lt;/button&gt;\n    &lt;/div&gt;\n  `\n}\n\nconst app = createApp(reducer, App)\n\napp.mount(document.body)\n</code></pre>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Redux-like store with a single reducer</li>\n<li>ES2015 template literal functions based on bel</li>\n<li>DOM update using morphdom and yo.update</li>\n<li>cxs className helper for functional styles</li>\n</ul>\n",
+      "html": "\n<p>Minimal functional application creator.\nA demonstration of basic functional UI principles.</p>\n<pre><code class=\"lang-sh\">npm i microapp\n</code></pre>\n<h2 id=\"usage-\">Usage:</h2>\n<pre><code class=\"lang-js\">import createApp, { h } from &apos;microapp&apos;\n\n// Redux-like reducer for application state\nconst reducer = (state = {\n  count: 0\n}, action) =&gt; {\n  switch (action.type) {\n    case: &apos;dec&apos;:\n      const count = state.count - 1\n      return { ...state, count }\n    case: &apos;inc&apos;:\n      const count = state.count + 1\n      return { ...state, count }\n    default:\n      return state\n  }\n}\n\n// Functional UI component\nconst App = ({ state, dispatch }) =&gt; {\n  return h`\n    &lt;div&gt;\n      &lt;h1&gt;Count: ${state.count}&lt;/h1&gt;\n      &lt;button\n        onclick=${e =&gt; dispatch({ type: &apos;dec&apos; })}&gt;\n        - Decrement\n      &lt;/button&gt;\n      &lt;button\n        onclick=${e =&gt; dispatch({ type: &apos;inc&apos; })}&gt;\n        + Increment\n      &lt;/button&gt;\n    &lt;/div&gt;\n  `\n}\n\nconst app = createApp(reducer, App)\n\napp.mount(document.body)\n</code></pre>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Redux-like store with a single reducer</li>\n<li>ES2015 template literal functions based on bel</li>\n<li>DOM update using morphdom and yo.update</li>\n<li>cxs className helper for functional styles</li>\n</ul>\n"
+    },
+    {
+      "component": "footer/BasicFooter",
+      "links": [
+        {
+          "href": "https://github.com/jxnblk/microapp",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/jxnblk",
+          "text": "jxnblk"
+        }
+      ]
+    }
+  ]
+}
