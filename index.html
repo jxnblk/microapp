@@ -1,6 +1,53 @@
-<!DOCTYPE html>
-<style>
-body{margin:0;font-family:SF Mono, monospace;}
-</style>
-<div id='app'></div>
-<script src='bundle.js'></script>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title></title><style>.cxs-max-width-100%{max-width:100%}.cxs-text-align-left{text-align:left}.cxs-vertical-align-bottom{vertical-align:bottom}.cxs-vertical-align-top{vertical-align:top}.cxs-3485620529 hr{margin-top:48px;margin-bottom:48px;border:0px;border-bottom-style:solid;border-bottom-width:1px;border-bottom:2px solid #eee}.cxs-3485620529 h1{font-size:32px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 h2{font-size:20px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 h3{font-size:18px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 h4{font-size:16px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 h5{font-size:14px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 h6{font-size:12px;margin-top:32px;margin-bottom:8px}.cxs-3485620529 code{font-family:Menlo, monospace;font-size:14px;padding:4px;background-color:#f6f6f6;border-radius:2px}.cxs-3485620529 pre{font-family:Menlo, monospace;font-size:14px;padding:16px;margin-top:8px;margin-bottom:32px;background-color:#f6f6f6;border-radius:2px}.cxs-3485620529 a:hover{text-decoration:underline}.cxs-3485620529 table{border-collapse:separate;border-spacing:0px;width:100%}.cxs-2552577879{font-size:32px}.cxs-3485620529 th{line-height:inherit}.cxs-3377994344{}.cxs-3377994344:hover{box-shadow:inset 0 0 0 999px rgba(0, 0, 0, .125)}.cxs-3485620529 td{line-height:inherit}.cxs-3485620529{}.cxs-3485620529 img{max-width: 100%;height: auto;margin-top:16px;margin-bottom:16px}.cxs-3485620529 p{margin-top:0px;margin-bottom:16px}.cxs-3485620529 a{color:#777;text-decoration: none}.cxs-3485620529 ul{padding-left:32px;margin-top:0px;margin-bottom:16px}@media screen and (min-width: 52em) { .cxs-2552577879{font-size:48px} }</style></head><body><div class="Xv" style="font-family:Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;font-weight:400;line-height:1.5;color:#333;background-color:#fff;"><nav style="position:relative;margin-bottom:-48px;display:flex;align-items:center;color:#fff;"><a href="https://github.com/jxnblk/microapp" class="Link" style="box-sizing:border-box;color:inherit;display:inline-block;font-size:14px;line-height:16px;padding-left:16px;padding-right:16px;padding-top:16px;padding-bottom:16px;font-weight:600;text-decoration:none;margin-right:8px;">GitHub</a><a href="https://npmjs.com/package/microapp" class="Link" style="box-sizing:border-box;color:inherit;display:inline-block;font-size:14px;line-height:16px;padding-left:16px;padding-right:16px;padding-top:16px;padding-bottom:16px;font-weight:600;text-decoration:none;margin-right:8px;">npm</a></nav><header class="BannerHeader" style="display:flex;align-items:center;justify-content:center;text-align:left;min-height:100vh;color:white;background-color:#333;background-image:url(undefined);background-size:cover;background-position:center;"><div style="box-sizing:border-box;width:100%;max-width:1024px;margin-left:auto;margin-right:auto;padding-top:48px;padding-bottom:48px;padding-left:32px;padding-right:32px;"><h1 class="cxs-2552577879 cxs-2552577879" style="box-sizing:border-box;margin:0;">microapp</h1><p class="Text" style="box-sizing:border-box;font-size:18px;margin:0;">v1.0.0</p><div style="box-sizing:border-box;margin-left:-16px;margin-right:-16px;"><a href="https://twitter.com/intent/tweet?text=microapp%253A%2520null&amp;url=" class="cxs-3377994344" style="box-sizing:border-box;font-family:inherit;font-size:inherit;font-weight:600;display:inline-block;margin:16px;padding-top:8px;padding-bottom:8px;padding-left:16px;padding-right:16px;border:0;cursor:pointer;border-radius:2px;color:#fff;background-color:#777;text-decoration:none;hover:[object Object];">Tweet</a><div style="display:table;clear:both;"></div></div></div></header><div class="cxs-3485620529 cxs-max-width-100% cxs-text-align-left cxs-vertical-align-bottom cxs-vertical-align-top" style="box-sizing:border-box;max-width:1024px;margin-left:auto;margin-right:auto;padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;"><article style="box-sizing:border-box;"><div>
+<p>Minimal functional application creator.
+A demonstration of basic functional UI principles.</p>
+<pre><code class="lang-sh">npm i microapp
+</code></pre>
+<h2 id="usage-">Usage:</h2>
+<pre><code class="lang-js">import createApp, { h } from &apos;microapp&apos;
+
+// Redux-like reducer for application state
+const reducer = (state = {
+  count: 0
+}, action) =&gt; {
+  switch (action.type) {
+    case: &apos;dec&apos;:
+      const count = state.count - 1
+      return { ...state, count }
+    case: &apos;inc&apos;:
+      const count = state.count + 1
+      return { ...state, count }
+    default:
+      return state
+  }
+}
+
+// Functional UI component
+const App = ({ state, dispatch }) =&gt; {
+  return h`
+    &lt;div&gt;
+      &lt;h1&gt;Count: ${state.count}&lt;/h1&gt;
+      &lt;button
+        onclick=${e =&gt; dispatch({ type: &apos;dec&apos; })}&gt;
+        - Decrement
+      &lt;/button&gt;
+      &lt;button
+        onclick=${e =&gt; dispatch({ type: &apos;inc&apos; })}&gt;
+        + Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  `
+}
+
+const app = createApp(reducer, App)
+
+app.mount(document.body)
+</code></pre>
+<h2 id="features">Features</h2>
+<ul>
+<li>Redux-like store with a single reducer</li>
+<li>ES2015 template literal functions based on bel</li>
+<li>DOM update using morphdom and yo.update</li>
+<li>cxs className helper for functional styles</li>
+</ul>
+</div></article></div><footer><div style="box-sizing:border-box;max-width:1024px;margin-left:auto;margin-right:auto;padding-top:8px;padding-bottom:8px;padding-left:32px;padding-right:32px;"><div style="margin-left:-16px;margin-right:-16px;"><a href="https://github.com/jxnblk/microapp" class="Link" style="box-sizing:border-box;color:inherit;display:inline-block;font-size:14px;line-height:16px;padding-left:16px;padding-right:16px;padding-top:16px;padding-bottom:16px;font-weight:600;text-decoration:none;">GitHub</a><a href="https://github.com/jxnblk" class="Link" style="box-sizing:border-box;color:inherit;display:inline-block;font-size:14px;line-height:16px;padding-left:16px;padding-right:16px;padding-top:16px;padding-bottom:16px;font-weight:600;text-decoration:none;">jxnblk</a></div><div></div></div></footer></div><div style="font-family:-apple-system, sans-serif;font-size:12px;font-weight:600;text-align:right;padding:24px;color:#333;background-color:#eee;"><a href="//compositor.io" style="color:inherit;text-decoration:none;">Built with Compositor.io</a></div></body></html>
