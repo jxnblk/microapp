@@ -1,8 +1,8 @@
 
 // (reducer, renderer) => app
 
-import h from 'h0'
-import createApp from '../src'
+import h0 from 'h0'
+import createApp, { h } from '../src'
 
 const div = document.getElementById('app')
 
@@ -80,16 +80,21 @@ const App = ({ state, dispatch }) => {
   }
 
 
-  return h('div')(
-    h('h1')('hello microapp'),
+  return h('div')({ className: cx.root })(
+    h('h1')({
+      className: cx.counter
+    })('hello microapp'),
     h('samp')(count),
-    h('button')({
-      // h0 needs to register event listeners
-      onclick: e => dispatch({ type: DECREMENT })
-    })('-'),
-    h('button')({
-      onclick: e => dispatch({ type: INCREMENT })
-    })('+')
+    h('div')({ className: cx.buttons })(
+      h('button')({
+        className: cx.button,
+        onclick: e => dispatch({ type: DECREMENT })
+      })('-'),
+      h('button')({
+        className: cx.button,
+        onclick: e => dispatch({ type: INCREMENT })
+      })('+')
+    )
   )
 }
 
