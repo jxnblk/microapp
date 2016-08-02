@@ -84,9 +84,6 @@ const App = ({ state, dispatch }) => {
     h('h1')('hello microapp'),
     h('samp')(count),
     h('button')({
-      style: {
-        backgroundColor: 'blue'
-      },
       // h0 needs to register event listeners
       onclick: e => dispatch({ type: DECREMENT })
     })('-'),

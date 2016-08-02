@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "cxs": "^1.0.0-beta.6",
-    "h0": "^1.0.0-beta.3",
+    "h0": "^1.0.0-beta.4",
     "hyp": "^1.0.0-beta.1",
     "inline-style-prefixer": "^2.0.0"
   }
