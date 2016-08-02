@@ -1,5 +1,6 @@
 
-import h, { cxs } from 'hyp'
+import h from 'h0'
+// import h, { cxs } from 'hyp'
 import { update } from 'yo-yo'
 
 export h from 'hyp'
@@ -19,7 +20,6 @@ const createApp = (reducer, renderer) => {
   const render = () => {
     const next = renderer(store)
     update(app, next)
-    cxs.attach()
   }
 
   const store = createStore(reducer, render)
@@ -27,7 +27,6 @@ const createApp = (reducer, renderer) => {
 
   app.mount = (el) => {
     el.appendChild(app)
-    cxs.attach()
   }
 
   app.store = store
@@ -35,6 +34,5 @@ const createApp = (reducer, renderer) => {
   return app
 }
 
-export cxs from 'cxs'
 export default createApp
 

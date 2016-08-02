@@ -1,5 +1,8 @@
 
-import createApp, { h, cxs } from '../src'
+// (reducer, renderer) => app
+
+import h from 'h0'
+import createApp from '../src'
 
 const div = document.getElementById('app')
 
@@ -9,6 +12,7 @@ const DECREMENT = 'DECREMENT'
 const reducer = (state = {
   count: 0
 }, action) => {
+  console.log('reducer', action)
   switch (action.type) {
     case INCREMENT:
       return {
@@ -75,34 +79,24 @@ const App = ({ state, dispatch }) => {
     }
   }
 
-  console.log(cxs.css.length, 'bytes')
-  console.log(cxs.css)
 
-  return h`
-    <div className=${cx.root}>
-      <h1>Hello</h1>
-      <div className=${cx.counter}>
-        ${count}
-      </div>
-      <div className=${cx.buttons}>
-        <button
-          className=${cx.button}
-          onclick=${e => dispatch({ type: DECREMENT })}>
-          -1
-        </button>
-        <button
-          className=${cx.button}
-          onclick=${e => dispatch({ type: INCREMENT })}>
-          +1
-        </button>
-      </div>
-    </div>
-  `
+  return h('div')(
+    h('h1')('hello microapp'),
+    h('samp')(count),
+    h('button')({
+      style: {
+        backgroundColor: 'blue'
+      },
+      // h0 needs to register event listeners
+      onclick: e => dispatch({ type: DECREMENT })
+    })('-'),
+    h('button')({
+      onclick: e => dispatch({ type: INCREMENT })
+    })('+')
+  )
 }
 
 const app = createApp(reducer, App)
-
-// (reducer, renderer) => app
 
 app.mount(document.body)
 
