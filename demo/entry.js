@@ -1,19 +1,25 @@
 
+// Conceptual API
 // (reducer, renderer) => app
 
-import h0 from 'h0'
 import createApp, { h } from '../src'
 
 const div = document.getElementById('app')
 
 const INCREMENT = 'INCREMENT'
 const DECREMENT = 'DECREMENT'
+const CHANGE = 'CHANGE'
 
 const reducer = (state = {
-  count: 0
+  count: 0,
+  text: ''
 }, action) => {
-  console.log('reducer', action)
   switch (action.type) {
+    case CHANGE:
+      return {
+        ...state,
+        text: action.text
+      }
     case INCREMENT:
       return {
         ...state,
@@ -33,7 +39,7 @@ const reducer = (state = {
 }
 
 const App = ({ state, dispatch }) => {
-  const { count } = state
+  const { text, count } = state
   const orange = '#f80'
   const blue = '#0cf'
   const green = '#0fa'
@@ -55,6 +61,7 @@ const App = ({ state, dispatch }) => {
       }
     },
     counter: {
+      display: 'block',
       padding: 48,
       fontSize: 48,
       color,
@@ -83,8 +90,22 @@ const App = ({ state, dispatch }) => {
   return h('div')({ className: cx.root })(
     h('h1')({
       className: cx.counter
-    })('hello microapp'),
-    h('samp')(count),
+    })('hello ' + text),
+    h('input')({
+      value: text,
+      style: {
+        color: color,
+        fontSize: 20,
+        // fontSize: 16 + (count % 8)
+      },
+      oninput: e => dispatch({
+        type: CHANGE,
+        text: e.target.value
+      })
+    })(),
+    h('samp')({
+      className: cx.counter
+    })(count),
     h('div')({ className: cx.buttons })(
       h('button')({
         className: cx.button,
