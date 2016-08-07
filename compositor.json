@@ -7,26 +7,26 @@
   "title": "",
   "branch": "",
   "style": {
-    "name": "Williamsburg",
+    "name": "Swiss",
     "componentSet": {
       "nav": "nav/BasicNav",
-      "header": "header/HighlightBannerHeader",
-      "article": "article/ReaderArticle",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
       "footer": "footer/BasicFooter"
     },
-    "fontFamily": "Montserrat, sans-serif",
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
     "heading": {
-      "fontWeight": 600,
-      "letterSpacing": "0.1em"
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
     },
     "colors": {
-      "text": "#346",
+      "text": "#000",
       "background": "#fff",
-      "primary": "#0099e0",
-      "secondary": "#ab61ff",
-      "highlight": "#f7b",
-      "muted": "#fffab3",
-      "border": "#ccd"
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
     }
   },
   "content": [
