@@ -7,38 +7,26 @@
   "title": "",
   "branch": "",
   "style": {
-    "name": "Future",
+    "name": "Swiss",
     "componentSet": {
       "nav": "nav/BasicNav",
-      "header": "header/BannerHeader",
-      "article": "article/BasicArticle",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
       "footer": "footer/BasicFooter"
     },
-    "fontFamily": "\"Avenir Next\", Helvetica, sans-serif",
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
     "heading": {
-      "fontWeight": 500,
-      "textTransform": "uppercase",
-      "letterSpacing": "0.2em"
-    },
-    "alternativeText": {
-      "textTransform": "uppercase",
-      "fontWeight": 400,
-      "letterSpacing": "0.2em",
-      "opacity": 0.75
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
     },
     "colors": {
-      "text": "#333",
+      "text": "#000",
       "background": "#fff",
-      "primary": "#666",
-      "secondary": "#888",
-      "highlight": "#1f80ff",
-      "muted": "#f6f6f6",
-      "border": "#eee"
-    },
-    "layout": {
-      "centered": true,
-      "maxWidth": 1024,
-      "bannerHeight": "80vh"
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
     }
   },
   "content": [
