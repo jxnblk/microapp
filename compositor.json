@@ -46,12 +46,12 @@
       "component": "nav",
       "links": [
         {
-          "href": "https://npmjs.com/package/microapp",
-          "text": "npm"
-        },
-        {
           "href": "https://github.com/jxnblk/microapp",
           "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/microapp",
+          "text": "npm"
         }
       ]
     },
