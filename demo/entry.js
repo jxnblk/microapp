@@ -79,19 +79,19 @@ const App = ({ state, dispatch }) => {
   console.log(cxs.css)
 
   return h`
-    <div className=${cx.root}>
+    <div css=${cx.root}>
       <h1>Hello</h1>
-      <div className=${cx.counter}>
+      <div css=${cx.counter}>
         ${count}
       </div>
-      <div className=${cx.buttons}>
+      <div css=${cx.buttons}>
         <button
-          className=${cx.button}
+          css=${cx.button}
           onclick=${e => dispatch({ type: DECREMENT })}>
           -1
         </button>
         <button
-          className=${cx.button}
+          css=${cx.button}
           onclick=${e => dispatch({ type: INCREMENT })}>
           +1
         </button>

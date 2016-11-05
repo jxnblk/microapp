@@ -19,7 +19,6 @@ const createApp = (reducer, renderer) => {
   const render = () => {
     const next = renderer(store)
     update(app, next)
-    cxs.attach()
   }
 
   const store = createStore(reducer, render)
@@ -27,7 +26,6 @@ const createApp = (reducer, renderer) => {
 
   app.mount = (el) => {
     el.appendChild(app)
-    cxs.attach()
   }
 
   app.store = store

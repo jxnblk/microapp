@@ -56,5 +56,5 @@ app.mount(document.body)
 - Redux-like store with a single reducer
 - ES2015 template literal functions based on bel
 - DOM update using morphdom and yo.update
-- cxs className helper for functional styles
+- cxs className helper for functional css-in-js styles
 
